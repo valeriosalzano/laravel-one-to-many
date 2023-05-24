@@ -34,10 +34,12 @@ class StoreProjectRequest extends FormRequest
     {
 
         return [
+            'type_id' => 'nullable|exists:types,id',
             'title' => 'required|max:150|unique:projects',
             'description' => 'nullable',
             'cover_image' => 'nullable|max:255|url',
             'slug' => 'unique:projects,slug',
+            
         ];
     }
 }

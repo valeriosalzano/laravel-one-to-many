@@ -26,6 +26,10 @@
                 $data = ['type' => 'textarea', 'field' => 'description', 'label' => 'Description']
             )
 
+            @include(
+                'partials.forms.create_form_element',
+                $data = ['type' => 'select', 'field' => 'type_id', 'label' => 'Type', 'options' => $types]
+            )
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

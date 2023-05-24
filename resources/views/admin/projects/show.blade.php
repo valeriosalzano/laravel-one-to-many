@@ -16,7 +16,7 @@
             {{ $project->slug }}
         </h2>
         <h3>
-            Type: {{$project->type?$project->type->name : 'No types match.'}}
+            Type: {{ $project->type ? $project->type->name : 'No types match.'}}
         </h3>
         <p class="fs-5">
             {{ $project->description }}

@@ -39,6 +39,11 @@
                 ]
             )
 
+            @include(
+                'partials.forms.edit_form_element',
+                $data = ['type' => 'select', 'field' => 'type_id', 'label' => 'Type', 'options' => $types, 'default' => $project->type_id]
+            )
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
