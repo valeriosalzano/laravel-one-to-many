@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,7 +24,8 @@ class ProjectSeeder extends Seeder
             $newProject->title = $faker->sentence(5);
             $newProject->description = $faker->text(300);
             $newProject->slug = Str::slug($newProject->title, '-');
-            $newProject->cover_image = $faker->url();
+            $newProject->cover_image = 'https://picsum.photos/500/300';
+            $newProject->type_id = $faker->randomElement(Type::pluck('id'));
             $newProject->save();
         }
     }
