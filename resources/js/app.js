@@ -8,3 +8,5 @@ import { addSweetDelete } from './sweet_delete';
 
 // *** PROJECT DELETE ***
 addSweetDelete('.sweet-delete.btn','.project-container','.project-title');
+// *** TYPE DELETE ***
+addSweetDelete('.sweet-delete.btn','.type-container','.type-name');

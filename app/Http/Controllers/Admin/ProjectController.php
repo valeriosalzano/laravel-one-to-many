@@ -43,13 +43,6 @@ class ProjectController extends Controller
 
         $validated_data = $request->validated();
 
-    
-        // $validated_data['slug'] = Project::generateSlug($request->title);
-
-        // if(Project::where('slug', $validated_data['slug'])->first()){
-        //     return back()->withInput()->withErrors(['slug' => 'Slug already taken. Different title required']);
-        // }
-
         $newProject = Project::create($validated_data);
 
         return to_route('admin.projects.show', ['project' => $newProject->slug])

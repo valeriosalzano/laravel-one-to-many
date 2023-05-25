@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Type;
-use App\Http\Requests\StoreTypeRequest;
-use App\Http\Requests\UpdateTypeRequest;
+use App\Http\Requests\Admin\StoreTypeRequest;
+use App\Http\Requests\Admin\UpdateTypeRequest;
 
 
 class TypeController extends Controller
@@ -17,7 +17,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+        return view('admin.types.index',compact('types'));
     }
 
     /**
@@ -27,7 +28,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -38,7 +39,12 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $validated_data = $request->validated();
+
+        $newType = Type::create($validated_data);
+
+        return to_route('admin.types.show', ['type' => $newType->slug])
+        ->with('status', 'Success! Type created.');
     }
 
     /**
@@ -49,7 +55,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**
@@ -60,7 +66,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -72,7 +78,12 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $validated_data = $request->validated();
+
+        $type->update($validated_data);
+
+        return to_route('admin.types.show', ['type' => $type->slug])
+        ->with('status', 'Success! Type updated.');
     }
 
     /**
@@ -83,6 +94,6 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        return to_route('admin.types.index');
     }
 }

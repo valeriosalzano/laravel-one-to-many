@@ -6,8 +6,8 @@
 
         @include('partials.forms.validation.success_alert')
 
-        <div class="img-fluid">
-            <img src="{{ $project->cover_image }}" class="object-fit-cover" alt=" cover of {{ $project->title }}">
+        <div class="container">
+            <img src="{{ $project->cover_image }}" class="w-100" alt=" cover of {{ $project->title }}">
         </div>
         <h1 class="fs-1 border-bottom mb-3 py-2 project-title">
             {{ $project->title }}
