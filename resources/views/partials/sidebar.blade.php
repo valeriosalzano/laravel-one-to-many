@@ -42,7 +42,7 @@
                     <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                         @foreach ($types as $type)
                             <li class="border-bottom">
-                                <a href="{{ route('admin.projects.show', $type->slug) }}"
+                                <a href="{{ route('admin.types.show', $type->slug) }}"
                                     class="link-body-emphasis d-inline-flex text-decoration-none rounded">
                                     {{ $type->name }}
                                 </a>

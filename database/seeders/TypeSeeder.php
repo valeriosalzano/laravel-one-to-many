@@ -19,7 +19,7 @@ class TypeSeeder extends Seeder
     {
         for ($i=0; $i<10; $i++){
             $newType = new Type();
-            $newType->name = 'type'.(count(Type::all()) + $i);
+            $newType->name = 'type '.(count(Type::all())+1);
             $newType->description = $faker->text(200);
             $newType->slug = Str::slug($newType->name, '-');
             $newType->save();
